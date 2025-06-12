@@ -26,7 +26,7 @@ function Menu() {
 
   return (
     <nav className="navbar navbar-dark bg-dark navbar-expand-md no-print px-2">
-        <a className="navbar-brand" href="#!">
+        <a className="navbar-brand">
           <i className="fa fa-industry"></i>
           &nbsp;<i>Pymes</i>
         </a>

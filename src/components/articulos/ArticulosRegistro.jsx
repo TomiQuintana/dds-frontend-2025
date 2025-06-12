@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 export default function ArticulosRegistro({
@@ -37,12 +36,12 @@ export default function ArticulosRegistro({
                 {...register("Nombre", {
                   required: { value: true, message: "Nombre es requerido" },
                   minLength: {
-                    value: 4,
-                    message: "Nombre debe tener al menos 4 caracteres",
+                    value: 5,
+                    message: "Nombre debe tener al menos 5 caracteres",
                   },
                   maxLength: {
-                    value: 55,
-                    message: "Nombre debe tener como máximo 55 caracteres",
+                    value: 60,
+                    message: "Nombre debe tener como máximo 60 caracteres",
                   },
                 })}
                 autoFocus
