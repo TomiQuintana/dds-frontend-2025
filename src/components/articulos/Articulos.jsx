@@ -6,6 +6,8 @@ import ArticulosRegistro from "./ArticulosRegistro";
 import { articulosService } from "../../services/articulos.service";
 //import { categoriasMockService as categoriasService } from "../../services/categorias-mock.service";
 import { categoriasService } from "../../services/categorias.service";
+import modalDialogService from "../../services/modalDialog.service";
+
 
 
 function Articulos() {
@@ -72,7 +74,7 @@ function Articulos() {
   }
   function Modificar(item) {
     if (!item.Activo) {
-      alert("No puede modificarse un registro Inactivo.");
+      modalDialogService.Alert("No puede modificarse un registro Inactivo.");
       return;
     }
     BuscarPorId(item, "M"); // paso la accionABMC pq es asincrono la busqueda y luego de ejecutarse quiero cambiar el estado accionABMC
@@ -90,7 +92,7 @@ function Articulos() {
       FechaAlta: moment(new Date()).format("YYYY-MM-DD"),
       Activo: true,
     });
-    alert("preparando el Alta...");
+    //modalDialogService.Alert("preparando el Alta...");
     console.log(Item);
   }
 
@@ -101,15 +103,19 @@ function Articulos() {
   }
 
   async function ActivarDesactivar(item) {
-    const resp = window.confirm(
-      "Está seguro que quiere " +
+    modalDialogService.Confirm(
+      "Esta seguro que quiere " +
         (item.Activo ? "desactivar" : "activar") +
-        " el registro?"
+        " el registro?",
+      undefined,
+      undefined,
+      undefined,
+      async () => {
+        await articulosService.ActivarDesactivar(item);
+        await Buscar();
+      }
     );
-    if (resp) {
-      await articulosService.ActivarDesactivar(item);
-      await Buscar();
-    }
+
   }
   
 
@@ -121,14 +127,14 @@ function Articulos() {
     }
     catch (error)
     {
-      alert(error?.response?.data?.message ?? error.toString())
+      modalDialogService.Alert(error?.response?.data?.message ?? error.toString())
       return;
     }
     await Buscar();
     Volver();
   
     setTimeout(() => {
-      alert(
+      modalDialogService.Alert(
         "Registro " +
           (AccionABMC === "A" ? "agregado" : "modificado") +
           " correctamente."
@@ -178,7 +184,7 @@ function Articulos() {
 
 
       {AccionABMC === "L" && Items?.length === 0 &&
-        <div className="alert alert-info mensajesAlert">
+        <div className="alert alert-info mensajesmodalDialogService.Alert">
           <i className="fa fa-exclamation-sign"></i>
           No se encontraron registros...
         </div>
