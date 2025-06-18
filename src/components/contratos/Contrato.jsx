@@ -22,6 +22,19 @@ function Contrato() {
 
   const agregar = () => {
     setAccion("A");
+    //setContratos([]); // Limpiar la lista de contratos al agregar uno nuevo
+    // setContratos({
+      //IdContrato: 0,
+      //NombreContrato: '',
+      //FechaInicio: '',
+      //FechaFin: '',
+      //ImporteMensual: 0,
+      //TelefonoContacto: '',  
+    //});
+    //modalDialogService.Alert("preparando el Alta...");
+    //console.log(Contratos);
+  //};
+
   };
 
   const volver = () => {
