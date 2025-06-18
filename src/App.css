@@ -59,6 +59,14 @@ label:not([class^='custom-control']) {
   height: 90%;
 }
 
+.formulario-contrato label {
+  background-color: #d7dfe7;
+  border-radius: 0.625em;
+  padding: 0.2em 0.5em;
+  display: inline-block;
+  margin-bottom: 0.25rem;
+}
+
 /*<=576*/
 @media only screen and (max-width: 575px) {
   label:not([class^='custom-control']) {

@@ -1,5 +1,5 @@
 // opcion 1 cuando se hacen pruebas locales
-//const urlServidor = "http://localhost:3000"
+// const urlServidor = "http://localhost:3000"
 
 
 // opcion 2 cuando se despliega el frontend en un servidor distinto al backend
@@ -18,6 +18,7 @@ const urlServidor = "https://pymes2025.azurewebsites.net"
 const urlResourceArticulos = urlServidor + "/api/articulos";
 const urlResourceCategorias = urlServidor + "/api/categorias";
 const urlResourceUsuarios = urlServidor + "/api/usuarios";
+
 
 
 
